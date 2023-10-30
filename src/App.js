@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button.jsx";
+import Text from "./Text.jsx";
 
 const App = () => {
-  const handleClick = () => {
-    console.log("I  am clicking from parent");
-  };
+  const [message, useMessage] = useState("This is start");
 
+  const changeMessage = () => {
+    console.log("fn clicked");
+    useMessage("message updated");
+  };
+  console.log(message);
   return (
-    <Button data={{ a: { b: { d: "e" } } }} childAction={handleClick}>
-      Click ME
-    </Button>
+    <>
+      <div>{message}</div>
+      <button onClick={changeMessage}>click</button>
+    </>
   );
 };
 
